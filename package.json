@@ -1,0 +1,48 @@
+{
+  "name": "value-factor-front",
+  "main": "server.js",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "export": "next export",
+    "lint": "run-p -l lint:*",
+    "lint:es": "eslint src/** --ext .ts,.tsx --no-error-on-unmatched-pattern",
+    "lint:prettier": "prettier --config .prettierrc.json --write '**/*.tsx'",
+    "commitmsg": "commitlint -e $GIT_PARAMS",
+    "prepare": "husky install",
+    "pre-commit": "lint-staged",
+    "deploy:staging": "firebase use staging && next build && next export && firebase deploy --only hosting"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/server": "^11.4.0",
+    "@emotion/styled": "^11.10.4",
+    "@hookform/resolvers": "^2.9.8",
+    "@material-ui/icons": "^4.11.3",
+    "@mui/icons-material": "^5.10.3",
+    "@mui/material": "^5.10.4",
+    "axios": "^0.27.2",
+    "create-emotion-server": "^11.0.0",
+    "date-fns": "^2.29.1",
+    "firebase": "^9.14.0",
+    "next": "12.3.1",
+    "prettier": "^2.7.1",
+    "pretty-quick": "^3.1.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-notifications-component": "^4.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "18.8.2",
+    "@types/react": "18.0.21",
+    "@types/react-dom": "18.0.6",
+    "eslint": "8.24.0",
+    "eslint-config-next": "12.3.1",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "typescript": "4.8.4"
+  }
+}
